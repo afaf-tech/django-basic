@@ -1,0 +1,44 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{title}}</title>
+    {% include "snippets/styles.html" %}
+    {% block app_css %}
+        <link rel="stylesheet" href="{% static "css/styles.css"%}">
+    {% endblock app_css %}
+</head>
+<body>
+    {% include "snippets/nav.html"%}
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-white text-center">
+            {% block header %}
+
+            {% endblock header %}
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div id="myBody"  class="container bg-info text-dark shadow" style="margin-top:-100px;">
+            {% block content-1 %}
+            {% endblock content-1 %}
+        </div>
+
+        <div  class="container bg-dark text-white shadow">
+            {% block content-2 %}
+            {% comment %} <div class="row" style="height:300px;">
+                <h1>Konten2</h1>
+            </div> {% endcomment %}
+            {% endblock content-2 %}
+        </div>
+      
+    </div>
+
+    {% include "snippets/script.html"%}
+</body>
+</html>
